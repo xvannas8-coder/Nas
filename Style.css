@@ -1,0 +1,296 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== BACKGROUND ===== */
+body {
+  min-height: 100vh;
+  padding: 25px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #080808;
+  color: #ff3838;
+  font-family: monospace;
+}
+
+/* ===== MAIN TERMINAL ===== */
+.terminal {
+  width: 100%;
+  max-width: 500px;
+  min-width: 0;
+  padding: 25px 18px;
+
+  background: #100505;
+  border: 2px solid #ff2929;
+  box-shadow: 0 0 25px #ff000033;
+
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* ===== WARNING ICON ===== */
+.warning {
+  margin: 10px 0 25px;
+  font-size: 60px;
+  animation: blink 1s infinite alternate;
+}
+
+/* ===== TITLE ===== */
+h1 {
+  margin-bottom: 22px;
+  font-size: clamp(27px, 7vw, 38px);
+  line-height: 1.3;
+  color: #ff3030;
+  text-shadow: 0 0 12px red;
+  animation: glitch 0.2s infinite;
+}
+
+/* ===== SUBTITLE ===== */
+.subtitle {
+  margin-bottom: 28px;
+  color: #ff8585;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* ===== MAIN PROGRESS BAR ===== */
+.bar {
+  width: 100%;
+  height: 16px;
+  margin: 20px 0;
+  overflow: hidden;
+
+  background: #190707;
+  border: 1px solid #ff2929;
+}
+
+#progress {
+  width: 0%;
+  height: 100%;
+  background: #ff1717;
+  box-shadow: 0 0 12px red;
+  transition: width 0.1s linear;
+}
+
+/* ===== MAIN STATUS ===== */
+#percent {
+  margin: 22px 0;
+  color: #ffffff;
+  font-size: clamp(16px, 4.5vw, 22px);
+  line-height: 1.5;
+}
+
+#status {
+  margin: 18px 0 28px;
+  color: #ff7777;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ===== PROCESS SECTION ===== */
+.extra-processes {
+  margin-top: 35px;
+  padding: 0 4px 20px;
+  text-align: left;
+}
+
+.process-title {
+  margin-bottom: 28px;
+  color: #ff3333;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* Each process */
+.process {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 10px;
+  row-gap: 12px;
+
+  margin-bottom: 32px;
+  color: #ffaaaa;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Process name */
+.process span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Percentage */
+.process span:nth-child(2) {
+  color: #ff6666;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Individual progress bar */
+.mini-bar {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 10px;
+
+  margin-top: 2px;
+  overflow: hidden;
+
+  background: #190707;
+  border: 1px solid #852020;
+  border-radius: 2px;
+}
+
+.mini-bar div {
+  width: 0%;
+  height: 100%;
+  background: #ff2525;
+  box-shadow: 0 0 8px red;
+  transition: width 0.15s linear;
+}
+
+/* ===== ENCRYPTED DATA DISPLAY ===== */
+.data-title {
+  margin: 30px 0 16px;
+  color: #ff4545;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+#logs {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+
+  background: #080b08;
+  border: 1px solid #422020;
+
+  color: #55ff78;
+  text-align: left;
+  font-size: 11px;
+  line-height: 2;
+}
+
+/* ===== SECRET BUTTON ===== */
+button {
+  display: block;
+  width: 100%;
+  min-height: 55px;
+  margin-top: 28px;
+  padding: 15px 10px;
+
+  background: #bd0000;
+  border: 1px solid #ff3333;
+
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+button:active {
+  background: #680000;
+}
+
+/* ===== SECRET REVEAL ===== */
+#secret {
+  margin-top: 28px;
+  padding: 18px 12px;
+
+  color: #70ff91;
+  border: 1px solid #70ff91;
+
+  line-height: 1.9;
+}
+
+#secret h2 {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 38px;
+  color: #777777;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* ===== HIDDEN ELEMENTS ===== */
+[hidden] {
+  display: none !important;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes blink {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(1px);
+  }
+}
+
+/* ===== SMALL PHONE ===== */
+@media (max-width: 360px) {
+  .terminal {
+    padding: 20px 12px;
+  }
+
+  .process {
+    font-size: 11px;
+    margin-bottom: 28px;
+  }
+
+  #logs {
+    font-size: 10px;
+  }
+}
+.countdown-box {
+  margin-top: 25px;
+  padding: 18px;
+  border: 1px solid #ff3333;
+  background: #190707;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.countdown-box h3 {
+  color: #ff3333;
+  margin-top: 0;
+}
+
+#timer {
+  color: #ff3333;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: nowrap;
+  margin: 12px 0;
+  text-shadow: 0 0 10px #ff000088;
+}
+.timer-note {
+  color: #aaa;
+  font-size: 12px;
+  }
